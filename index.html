@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ef4444">
+  <meta name="description" content="Pokédex instalable que consulta Pokémon desde PokéAPI y los ordena alfabéticamente.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/pokeball.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Pokédex | A-Z</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-ball" aria-hidden="true">◉</span>
+      <div><p class="eyebrow">TU GUÍA POKÉMON</p><h1>Pokédex <span>A–Z</span></h1></div>
+    </div>
+    <button id="installBtn" class="install-btn" hidden>＋ Instalar app</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">EXPLORA · BUSCA · DESCUBRE</p>
+        <h2>Todos tus Pokémon,<br><span>en orden alfabético.</span></h2>
+        <p class="hero-text">Consulta la PokéAPI y encuentra rápidamente tu Pokémon favorito.</p>
+      </div>
+      <div class="hero-pokeball" aria-hidden="true"><div></div></div>
+    </section>
+
+    <section class="tools" aria-label="Buscar Pokémon">
+      <label class="searchbox">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Buscar por nombre..." autocomplete="off">
+        <kbd>AZ</kbd>
+      </label>
+      <div class="sort-row">
+        <span id="countLabel">Cargando Pokémon...</span>
+        <label class="sort-control">Orden
+          <select id="sortSelect">
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+          </select>
+        </label>
+      </div>
+      <nav id="alphabet" class="alphabet" aria-label="Filtrar por letra"></nav>
+    </section>
+
+    <p id="status" class="status" role="status">Conectando con PokéAPI...</p>
+    <section id="pokemonGrid" class="pokemon-grid" aria-label="Lista de Pokémon"></section>
+    <button id="loadMoreBtn" class="load-more" hidden>Mostrar más Pokémon</button>
+    <dialog id="pokemonDialog" class="pokemon-dialog" aria-labelledby="detailName">
+    <button id="closeDialogBtn" class="dialog-close" aria-label="Cerrar detalles">×</button>
+    <div id="pokemonDetails"><p class="detail-loading">Selecciona un Pokémon para ver sus detalles.</p></div>
+  </dialog>
+  <p class="credit">Datos e imágenes proporcionados por <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">PokéAPI</a>.</p>
+  </main>
+
+  <footer><span>POKÉDEX A–Z</span><span>Hecha para entrenadores curiosos</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
