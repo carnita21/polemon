@@ -188,3 +188,15 @@ if ("serviceWorker" in navigator) {
 }
 
 loadPokemon();
+
+const downloadBtn = document.querySelector("#downloadBtn");
+
+downloadBtn.addEventListener("click", async () => {
+  if (installPrompt) {
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+  } else {
+    alert("Para descargar la aplicación, utiliza la opción 'Instalar aplicación' de tu navegador.");
+  }
+});
